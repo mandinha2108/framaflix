@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.CompilerServices;
 
 namespace FramaFlix.Models;
 
@@ -28,4 +29,27 @@ public class Movie
     [Display(Name = "Ano de estreia")]
     [Required(ErrorMessage = "Por favor, informe o ano de estreia.")]
     public Int16 MovieYear { get; set; }
+ [Display(Name = "Duração(em minutos)")]
+ [Required(ErrorMessage ="Por favor, informe a duração")]
+    public Int16 Duration { get; set; }
+
+    [Display(Name ="Classificação etária")]
+    [Required(ErrorMessage ="Por favor, informe a classificação etária")]
+    public byte AgeReting { get; set; } = 0;
+
+    [StringLength(200)]
+    [Display(Name = "Foto")]
+
+    public string Image { get; set; }
+    
+     // h - hora; hh - hora com digitos; m- minutos; s
+     // d - dias; M - mês; yyyy- ano
+    [NotMapped]
+    [Display(Name = "Duração")]
+     public string HourDuration { get {
+        return TimeSpan.FromMinutes(Duration).ToString(@"%h'h'm'min'" );
+     } }
+    
+
+
 }
