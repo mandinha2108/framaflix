@@ -35,7 +35,7 @@ public class Movie
 
     [Display(Name ="Classificação etária")]
     [Required(ErrorMessage ="Por favor, informe a classificação etária")]
-    public byte AgeReting { get; set; } = 0;
+    public byte AgeRating { get; set; } = 0;
 
     [StringLength(200)]
     [Display(Name = "Foto")]
